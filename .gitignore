@@ -1,3 +1,6 @@
+/fe-react-app/node_modules
+/fe-react-app/package-lock.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

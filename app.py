@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from flask import Flask
+from flask_cors import CORS, cross_origin
 import base64
 from PIL import Image
 import io
@@ -7,6 +9,7 @@ from tensorflow.keras.models import load_model
 from prp import predict_personality  # Импортируем функцию из вашего файла
 
 app = Flask(__name__)
+cors = CORS(app)
 
 # Загрузка модели
 model = load_model('C:\\Users\\admin\\Desktop\\fio\\tmp')
