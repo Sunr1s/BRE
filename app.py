@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask import Flask
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import base64
 from PIL import Image
 import io
@@ -22,6 +22,7 @@ def predict():
         return jsonify({'error': 'Missing image data'}), 400
     
     # Декодирование изображения
+    image_data = image_data.split(',')[1]
     image_data = base64.b64decode(image_data)
     image = Image.open(io.BytesIO(image_data)).convert('RGB')
     
@@ -30,7 +31,7 @@ def predict():
     # Формирование ответа в формате JSON
     response = {}
     for trait, value in predicted_traits.items():
-        response[trait] = f"{value*100:.2f}%"
+        response[trait] = f"{value:.2f}%"
     
     return jsonify(response)
 

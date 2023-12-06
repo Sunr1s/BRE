@@ -1,8 +1,7 @@
-from tensorflow.keras.models import load_model
-from PIL import Image
+
 import numpy as np
 
-traits = ['Экстраверсия', 'Нейротизм', 'Доброжелательность', 'Добросовестность', 'Открытость к опыту']
+traits = ['Екстраверсія', 'Нейротизм', 'Доброзичливість', 'Добросовісність', 'Відкритість до досвіду']
 
 def predict_personality(model, image):
 
